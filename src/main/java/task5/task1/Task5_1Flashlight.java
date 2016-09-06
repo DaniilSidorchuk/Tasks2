@@ -27,7 +27,7 @@ public class Task5_1Flashlight {
 
     }
 
-    int battery(int battery, String mod) {
+    int battery() {
         if (mod.equals("white")) {
             battery = 1;
         }
