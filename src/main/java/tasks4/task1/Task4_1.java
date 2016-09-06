@@ -13,10 +13,7 @@ import java.util.Arrays;
  c = {1, 2, 3, 4, 5, 8, 9, 12}
  */
 public class Task4_1 {
-    public static void main(String[] args) {
-        int []a = {1, 3, 5};
-        int []b = {2, 4, 8, 9, 12};
-        int []c = new int [8];
+    public static int[] main(int []a,int[] b, int[] c) {
 
         int a1 = 0;
         int b1 = 0;
@@ -39,6 +36,6 @@ public class Task4_1 {
         }
                 c1++;
         }
-
+return c;
     }
 }
