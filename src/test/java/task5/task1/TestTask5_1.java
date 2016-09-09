@@ -14,13 +14,15 @@ public class TestTask5_1 {
     @Before
     public void setUp(){
         flashlight = new Task5_1Flashlight();
-        flashlight.mod = "white";
-        flashlight.battery();
 
-    }
+        }
     @Test
     public void battery (){
+        flashlight.mod = "white";
+        flashlight.battery();
         assertThat(flashlight.battery, is(1));
     }
+
+
 
 }
