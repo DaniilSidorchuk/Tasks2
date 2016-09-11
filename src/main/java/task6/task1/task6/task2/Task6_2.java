@@ -10,6 +10,7 @@ public class Task6_2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         String phrase = sc.nextLine();
+        phrase = phrase.trim();
         String [] array = phrase.split(" ");
         for (int i = 0; i<array.length; i++){
             array[i] = reduction(array[i]);
