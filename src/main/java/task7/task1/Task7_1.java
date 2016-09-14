@@ -33,11 +33,11 @@ public class Task7_1 {
     }
 
     public static int febonacci (int n) {
-        if (i != n+1) {
+        if (n-1!=0) {
             n3 = n1 + n2;
             n2 = n1;
             n1 = n3;
-            i++;
+            n--;
             febonacci(n);
         }
         return n3;
