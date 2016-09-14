@@ -4,6 +4,9 @@ package task7.task1;
 public class Task7_1 {
 
     static int i = 2;
+    static int n1 = 1;
+    static int n2 = 1;
+    static int n3;
 
     public static int febon(int n,int array[] ) {
         array[0] = 1;
@@ -27,5 +30,16 @@ public class Task7_1 {
 
         return array[i];
 
+    }
+
+    public static int febonacci (int n) {
+        if (i != n+1) {
+            n3 = n1 + n2;
+            n2 = n1;
+            n1 = n3;
+            i++;
+            febonacci(n);
+        }
+        return n3;
     }
 }
