@@ -4,8 +4,8 @@ package task8.task1.ver2;
  * Created by Даня on 18.09.2016.
  */
 public class Player {
-    private String name;
-    private int age;
+    private static String name;
+    private static int age;
     private char type;
 
     public Player (String name, int age, char type){
@@ -18,11 +18,11 @@ public class Player {
         return type;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
-    public int getAge() {
+    public static int getAge() {
         return age;
     }
 }

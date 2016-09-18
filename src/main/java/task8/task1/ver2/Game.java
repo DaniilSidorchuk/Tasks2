@@ -21,12 +21,12 @@ public class Game {
 
         }
         Player player = board.gerWinner();
-        System.out.println(player.getName() + " " + player.getAge());
+        System.out.println(Player.getName() + " " + Player.getAge());
     }
 
     private static String getMoveFromConsole(Scanner scanner) {
         System.out.println("Player moves ...");
         System.out.println("Enter move: ");
-        return scanner.next();
+        return scanner.nextLine();
     }
 }

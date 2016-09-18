@@ -27,7 +27,7 @@ public class Board {
 
     public boolean makemove(String move) {
        if (validateMove(move)) {
-           return false;
+           return true;
        }
 
            int i = move.charAt(0);
@@ -49,21 +49,68 @@ public class Board {
     }
 
     private boolean validateMove(String move){
-        //// TODO: 18.09.2016 write conditions 
-        return true;
+        if (move == "00" || move == "01" || move == "02" || move == "10" || move == "11" || move == "12" || move == "20" || move == "21" || move == "22") {
+            return true;
+        }else return false;
 
     }
 
-    private void findWinner(){
-        //todo calculate who winner correctly
-        winner = playerFirst;
+    private void findWinner() {
+        if (board[0][0] == 'x' && board[0][1] == 'x' && board[0][2] == 'x') {
+            winner = playerFirst;
+        }
+        if (board[0][0] == 'o' && board[0][1] == 'o' && board[0][2] == 'o') {
+            winner = playerSecond;
+        }
+        if (board[1][0] == 'x' && board[1][1] == 'x' && board[1][2] == 'x') {
+            winner = playerFirst;
+        }
+        if (board[1][0] == 'o' && board[1][1] == 'o' && board[1][2] == 'o') {
+            winner = playerSecond;
+        }
+        if (board[2][0] == 'x' && board[2][1] == 'x' && board[2][2] == 'x') {
+            winner = playerFirst;
+        }
+        if (board[2][0] == 'o' && board[2][1] == 'o' && board[2][2] == 'o') {
+            winner = playerSecond;
+        }
+        if (board[0][0] == 'x' && board[1][0] == 'x' && board[2][0] == 'x') {
+            winner = playerFirst;
+        }
+        if (board[0][0] == 'o' && board[1][0] == 'o' && board[2][0] == 'o') {
+            winner = playerSecond;
+        }
+        if (board[0][1] == 'x' && board[1][1] == 'x' && board[2][1] == 'x') {
+            winner = playerFirst;
+        }
+        if (board[0][1] == 'o' && board[1][1] == 'o' && board[2][1] == 'o') {
+            winner = playerSecond;
+        }
+        if (board[0][2] == 'x' && board[1][2] == 'x' && board[2][2] == 'x') {
+            winner = playerFirst;
+        }
+        if (board[0][2] == 'o' && board[1][2] == 'o' && board[2][2] == 'o') {
+            winner = playerSecond;
+        }
+        if (board[0][0] == 'x' && board[1][1] == 'x' && board[2][2] == 'x') {
+            winner = playerFirst;
+        }
+        if (board[0][0] == 'o' && board[1][1] == 'o' && board[2][2] == 'o') {
+            winner = playerSecond;
+        }
+        if (board[0][2] == 'x' && board[1][1] == 'x' && board[2][0] == 'x') {
+            winner = playerFirst;
+        }
+        if (board[0][2] == 'o' && board[1][1] == 'o' && board[2][0] == 'o') {
+            winner = playerSecond;
+        }
     }
 
-    public boolean gameFinished(){
-        //// TODO: 18.09.2016  finish the function
-        if (board[0][0] == 'x' && board[0][1] == 'x' && board[0][2] == 'x'){
-        return true;}
-        return false;
+    public boolean gameFinished() {
+        if (board[0][0] != ' ' && board[0][1] != ' ' && board[0][2] != ' ' && board[1][0] != ' ' && board[1][1] != ' ' && board[1][2] != ' ' && board[2][0] != ' ' && board[2][1] != ' ' && board[2][2] != ' '){
+            return true;
+        }else return false;
+
     }
 
     public void fillboard(){
@@ -75,10 +122,10 @@ public class Board {
     }
 
     public void printBoard(){
-        //// TODO: 18.09.2016 add symbols to show board
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++){
-                System.out.print(board[i][j] + " ");
+                System.out.print(board[i][j] + "|");
             }
             System.out.println();
 
