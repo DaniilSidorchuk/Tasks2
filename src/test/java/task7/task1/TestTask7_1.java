@@ -32,4 +32,11 @@ public class TestTask7_1 {
         int actResult = Task7_1.febonacci(n);
         assertThat(expResult, is(actResult));
     }
+
+    @Test
+    public void test4(){
+        int expResult = 55;
+        int actResult = Task7_1.fibonacci(n);
+        assertThat(expResult, is(actResult));
+    }
 }
