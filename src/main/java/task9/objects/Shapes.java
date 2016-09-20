@@ -4,8 +4,8 @@ public class Shapes {
    private int lengthSide1;
    private int lengthSide2;
    private String typeOfShape;
-  private double area;
-   private double perimeter;
+  double area;
+  double perimeter;
 
     public Shapes(int lengthSide1, int lengthSide2, String typeOfShape){
         this.lengthSide1 = lengthSide1;
@@ -19,8 +19,12 @@ public class Shapes {
         this.typeOfShape = typeOfShape;
     }
 
-    public void area(){}
-    public void perimeter(){}
+    public double area(){
+        return area;
+    }
+    public double perimeter(){
+        return perimeter;
+    }
     public void info(){
         System.out.println(typeOfShape);
         System.out.println("Area = " + area);
@@ -51,19 +55,5 @@ public class Shapes {
         this.typeOfShape = typeOfShape;
     }
 
-    public double getArea() {
-        return area;
-    }
 
-    public void setArea(double area) {
-        this.area = area;
-    }
-
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    public void setPerimeter(double perimeter) {
-        this.perimeter = perimeter;
-    }
 }

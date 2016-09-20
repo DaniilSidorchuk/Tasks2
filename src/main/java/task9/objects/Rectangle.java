@@ -9,13 +9,13 @@ public class Rectangle extends Shapes {
     }
 
         @Override
-        public void area (){
-            setArea(getLengthSide1() * getLengthSide2());
+        public double area (){
+            return area = getLengthSide1() * getLengthSide2();
         }
 
         @Override
-        public void perimeter() {
-            setPerimeter(2 * (getLengthSide1() + getLengthSide2()));
+        public double perimeter() {
+          return perimeter = 2 * (getLengthSide1() + getLengthSide2());
         }
     }
 

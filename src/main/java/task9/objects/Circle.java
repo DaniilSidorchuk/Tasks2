@@ -8,12 +8,12 @@ public class Circle extends Shapes {
     }
 
     @Override
-    public void area() {
-        setArea(3.14 * getLengthSide1()/2 * getLengthSide1()/2);
+    public double area() {
+        return area = 3.14 * getLengthSide1()/2 * getLengthSide1()/2;
     }
 
     @Override
-    public void perimeter() {
-        setPerimeter(3.14 * getLengthSide1());
+    public double perimeter() {
+        return perimeter = 3.14 * getLengthSide1();
     }
 }

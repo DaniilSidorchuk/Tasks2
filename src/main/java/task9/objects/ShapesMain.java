@@ -7,11 +7,11 @@ public class ShapesMain {
 
         shapes[0].perimeter();
         shapes[1].perimeter();
-        double totalPerimeter = shapes[0].getPerimeter() + shapes[1].getPerimeter();
+        double totalPerimeter = shapes[0].perimeter + shapes[1].perimeter;
 
         shapes[0].area();
         shapes[1].area();
-        double totalArea = shapes[0].getArea() + shapes[1].getArea();
+        double totalArea = shapes[0].area + shapes[1].area;
 
 
         System.out.println(totalPerimeter);
