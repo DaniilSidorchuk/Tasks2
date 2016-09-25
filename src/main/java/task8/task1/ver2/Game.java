@@ -20,8 +20,9 @@ public class Game {
 
         }
 
-        Player player = board.gerWinner();
-        System.out.println(player.getName() + " " + player.getAge());
+        Player player = board.getWinner();
+        System.out.println("Congratulations");
+        System.out.println("Winner is " + player.getName() + " " + player.getAge());
     }
 
     private static String getMoveFromConsole(Scanner scanner) {

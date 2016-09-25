@@ -24,18 +24,19 @@ public class Board {
     }
 
     public boolean makeMove(String move) {
-       if (!validateMove(move)) {
-           return false;
-       }
 
            char i1 = move.charAt(0);
            char j1 = move.charAt(1);
 
-           int i2 = Character.digit(i1, 10);
-           int j2 = Character.digit(j1, 10);
+           int i = Character.digit(i1, 10);
+           int j = Character.digit(j1, 10);
 
-           board[i2][j2] = currentPlayer.getType();
-        changePlayer();
+        if (!validateMove(i, j)) {
+            return false;
+        }
+           board[i][j] = currentPlayer.getType();
+        if (!gameFinished()){
+        changePlayer();}
         return true;
     }
 
@@ -47,13 +48,19 @@ public class Board {
         }
     }
 
-    private boolean validateMove(String move){
-        if (move == "00" && board[0][0] == ' ' || move == "01" && board[0][1] == ' ' || move == "02" && board[0][2] == ' '  || move == "10" && board[1][0] == ' '  || move == "11" && board[1][1] == ' '  || move == "12" && board[1][2] == ' '  || move == "20" && board[2][0] == ' '  || move == "21" && board[2][1] == ' '  || move == "22"  && board[2][2] == ' ' ) {
+
+    private boolean validateMove(int i, int j){
+        if (i>2 || i<0){
+            return false;
+        }
+        if (j>2 || j<0){
+            return false;
+        }
+        if (board[i][j] == ' '){
             return true;
-        }else return false;
-
+        }
+        return false;
     }
-
     private void findWinner() {
         if (board[0][0] == currentPlayer.getType() && board[0][1] == currentPlayer.getType() && board[0][2] == currentPlayer.getType()) {
             winner = currentPlayer;
@@ -88,10 +95,12 @@ public class Board {
            }
 
     public boolean gameFinished() {
+        getWinner();
+        if (winner != null){
+            return  true;}
         if (board[0][0] != ' ' && board[0][1] != ' ' && board[0][2] != ' ' && board[1][0] != ' ' && board[1][1] != ' ' && board[1][2] != ' ' && board[2][0] != ' ' && board[2][1] != ' ' && board[2][2] != ' '){
-            return true;
-        }else return false;
-
+            return true;}
+        return false;
     }
 
     public void fillboard(){
@@ -113,7 +122,7 @@ public class Board {
         }
     }
 
-    public Player gerWinner(){
+    public Player getWinner(){
         findWinner();
         return winner;
     }
