@@ -1,8 +1,6 @@
 package task8.task1.ver2;
 
-/**
- * Created by Даня on 18.09.2016.
- */
+
 public class Board {
     public static final int BOARD_SIZEi = 3;
     public static final int BOARD_SIZE = 3;
@@ -15,7 +13,7 @@ public class Board {
 
     Player winner;
 
-    public Board(Player playerFirst, Player playerSecond, Player currentPlayer){
+    public Board(Player playerFirst, Player playerSecond){
         this.playerFirst = playerFirst;
         this.playerSecond = playerSecond;
 
@@ -25,19 +23,20 @@ public class Board {
         fillboard();
     }
 
-    public boolean makemove(String move) {
-       if (validateMove(move)) {
-           return true;
+    public boolean makeMove(String move) {
+       if (!validateMove(move)) {
+           return false;
        }
 
-           int i = move.charAt(0);
-           int j = move.charAt(1);
+           char i1 = move.charAt(0);
+           char j1 = move.charAt(1);
 
-           board[i][j] = currentPlayer.getType();
+           int i2 = Character.digit(i1, 10);
+           int j2 = Character.digit(j1, 10);
+
+           board[i2][j2] = currentPlayer.getType();
         changePlayer();
         return true;
-
-
     }
 
     private void changePlayer() {
@@ -49,62 +48,44 @@ public class Board {
     }
 
     private boolean validateMove(String move){
-        if (move == "00" || move == "01" || move == "02" || move == "10" || move == "11" || move == "12" || move == "20" || move == "21" || move == "22") {
+        if (move == "00" && board[0][0] == ' ' || move == "01" && board[0][1] == ' ' || move == "02" && board[0][2] == ' '  || move == "10" && board[1][0] == ' '  || move == "11" && board[1][1] == ' '  || move == "12" && board[1][2] == ' '  || move == "20" && board[2][0] == ' '  || move == "21" && board[2][1] == ' '  || move == "22"  && board[2][2] == ' ' ) {
             return true;
         }else return false;
 
     }
 
     private void findWinner() {
-        if (board[0][0] == 'x' && board[0][1] == 'x' && board[0][2] == 'x') {
-            winner = playerFirst;
+        if (board[0][0] == currentPlayer.getType() && board[0][1] == currentPlayer.getType() && board[0][2] == currentPlayer.getType()) {
+            winner = currentPlayer;
         }
-        if (board[0][0] == 'o' && board[0][1] == 'o' && board[0][2] == 'o') {
-            winner = playerSecond;
+
+        if (board[1][0] == currentPlayer.getType() && board[1][1] == currentPlayer.getType() && board[1][2] == currentPlayer.getType()) {
+            winner = currentPlayer;
         }
-        if (board[1][0] == 'x' && board[1][1] == 'x' && board[1][2] == 'x') {
-            winner = playerFirst;
+
+        if (board[2][0] == currentPlayer.getType() && board[2][1] == currentPlayer.getType() && board[2][2] == currentPlayer.getType()) {
+            winner = currentPlayer;
         }
-        if (board[1][0] == 'o' && board[1][1] == 'o' && board[1][2] == 'o') {
-            winner = playerSecond;
+        if (board[0][0] == currentPlayer.getType() && board[1][0] == currentPlayer.getType() && board[2][0] == currentPlayer.getType()) {
+            winner = currentPlayer;
         }
-        if (board[2][0] == 'x' && board[2][1] == 'x' && board[2][2] == 'x') {
-            winner = playerFirst;
+
+        if (board[0][1] == currentPlayer.getType() && board[1][1] == currentPlayer.getType() && board[2][1] == currentPlayer.getType()) {
+            winner = currentPlayer;
         }
-        if (board[2][0] == 'o' && board[2][1] == 'o' && board[2][2] == 'o') {
-            winner = playerSecond;
+
+        if (board[0][2] == currentPlayer.getType() && board[1][2] == currentPlayer.getType() && board[2][2] == currentPlayer.getType()) {
+            winner = currentPlayer;
         }
-        if (board[0][0] == 'x' && board[1][0] == 'x' && board[2][0] == 'x') {
-            winner = playerFirst;
+
+        if (board[0][0] == currentPlayer.getType() && board[1][1] == currentPlayer.getType() && board[2][2] == currentPlayer.getType()) {
+            winner = currentPlayer;
         }
-        if (board[0][0] == 'o' && board[1][0] == 'o' && board[2][0] == 'o') {
-            winner = playerSecond;
+
+        if (board[0][2] == currentPlayer.getType() && board[1][1] == currentPlayer.getType() && board[2][0] == currentPlayer.getType()) {
+            winner = currentPlayer;
         }
-        if (board[0][1] == 'x' && board[1][1] == 'x' && board[2][1] == 'x') {
-            winner = playerFirst;
-        }
-        if (board[0][1] == 'o' && board[1][1] == 'o' && board[2][1] == 'o') {
-            winner = playerSecond;
-        }
-        if (board[0][2] == 'x' && board[1][2] == 'x' && board[2][2] == 'x') {
-            winner = playerFirst;
-        }
-        if (board[0][2] == 'o' && board[1][2] == 'o' && board[2][2] == 'o') {
-            winner = playerSecond;
-        }
-        if (board[0][0] == 'x' && board[1][1] == 'x' && board[2][2] == 'x') {
-            winner = playerFirst;
-        }
-        if (board[0][0] == 'o' && board[1][1] == 'o' && board[2][2] == 'o') {
-            winner = playerSecond;
-        }
-        if (board[0][2] == 'x' && board[1][1] == 'x' && board[2][0] == 'x') {
-            winner = playerFirst;
-        }
-        if (board[0][2] == 'o' && board[1][1] == 'o' && board[2][0] == 'o') {
-            winner = playerSecond;
-        }
-    }
+           }
 
     public boolean gameFinished() {
         if (board[0][0] != ' ' && board[0][1] != ' ' && board[0][2] != ' ' && board[1][0] != ' ' && board[1][1] != ' ' && board[1][2] != ' ' && board[2][0] != ' ' && board[2][1] != ' ' && board[2][2] != ' '){
@@ -125,7 +106,7 @@ public class Board {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++){
-                System.out.print(board[i][j] + "|");
+                System.out.print("|" + board[i][j] + "|");
             }
             System.out.println();
 
@@ -133,6 +114,7 @@ public class Board {
     }
 
     public Player gerWinner(){
+        findWinner();
         return winner;
     }
 }
