@@ -1,8 +1,5 @@
 package task8.task1.ver2;
 
-/**
- * Created by Даня on 18.09.2016.
- */
 public class Player {
     private static String name;
     private static int age;

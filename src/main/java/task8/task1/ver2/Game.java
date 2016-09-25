@@ -21,7 +21,7 @@ public class Game {
         }
 
         Player player = board.getWinner();
-        System.out.println("Congratulations");
+        System.out.println("Congratulations!");
         System.out.println("Winner is " + player.getName() + " " + player.getAge());
     }
 

@@ -48,7 +48,6 @@ public class Board {
         }
     }
 
-
     private boolean validateMove(int i, int j){
         if (i>2 || i<0){
             return false;
@@ -61,6 +60,7 @@ public class Board {
         }
         return false;
     }
+
     private void findWinner() {
         if (board[0][0] == currentPlayer.getType() && board[0][1] == currentPlayer.getType() && board[0][2] == currentPlayer.getType()) {
             winner = currentPlayer;
