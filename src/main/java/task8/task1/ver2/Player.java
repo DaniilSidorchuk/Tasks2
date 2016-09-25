@@ -1,8 +1,8 @@
 package task8.task1.ver2;
 
 public class Player {
-    private static String name;
-    private static int age;
+    private String name;
+    private  int age;
     private char type;
 
     public Player (String name, int age, char type){
@@ -15,11 +15,11 @@ public class Player {
         return type;
     }
 
-    public static String getName() {
+    public  String getName() {
         return name;
     }
 
-    public static int getAge() {
+    public  int getAge() {
         return age;
     }
 }
