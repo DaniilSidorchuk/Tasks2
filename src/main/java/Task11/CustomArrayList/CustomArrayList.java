@@ -102,7 +102,9 @@ public class CustomArrayList implements CustomList {
 
 
     public Iterator randomIterator() {
-        return null;
+        RandomIterator object =  new RandomIterator();
+        object.mixArray();
+        return object;
     }
 
     private class RandomIterator implements Iterator{
@@ -115,10 +117,15 @@ public class CustomArrayList implements CustomList {
             int index;
             for (int i = 0; i < indexArray.length ; i++) {
                 index = index();
-                if (indexNotSame(i, index)){
-                    indexArray[i] = index;
-            }else i--;
+                if (i == indexArray.length -1){
+                    indexArray[i] = 0;
+                    break;
+                }
 
+                if (indexNotSame(i, index)) {
+                    indexArray[i] = index;
+                } else i--;
+            }
                 for (int j = 0; j < size ; j++) {
                     int index2 = indexArray[j];
                     arrayExt[j] = array[index2];
@@ -126,10 +133,11 @@ public class CustomArrayList implements CustomList {
                 }
 
             }
-        }
+
 
         private boolean indexNotSame(int i, int index) {
             for (int j = i; j >= 0 ; j--) {
+
                 if (indexArray[j] == index){
                     return false;
                 }
@@ -139,7 +147,7 @@ public class CustomArrayList implements CustomList {
 
         public int index() {
           Random rn = new Random();
-            int index = rn.nextInt(size-1);
+            int index = rn.nextInt(size);
             return index;
         }
 

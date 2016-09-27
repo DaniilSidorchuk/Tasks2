@@ -21,7 +21,7 @@ public class ArrayListMain {
         System.out.println("Iterator example");
         Iterator iterator = list.randomIterator();
         while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+            System.out.print(iterator.next() + " ");
         }
 
     }
