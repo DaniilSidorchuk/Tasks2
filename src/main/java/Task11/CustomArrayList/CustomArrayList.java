@@ -116,12 +116,8 @@ public class CustomArrayList implements CustomList {
         public void mixArray(){
             int index;
             for (int i = 0; i < indexArray.length ; i++) {
+                indexArray[i] = size;
                 index = index();
-                if (i == indexArray.length -1){
-                    indexArray[i] = 0;
-                    break;
-                }
-
                 if (indexNotSame(i, index)) {
                     indexArray[i] = index;
                 } else i--;
