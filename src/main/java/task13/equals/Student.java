@@ -6,13 +6,18 @@ public class Student implements Comparable <Student> {
     private int age;
     private String city;
 
-    public Student(String name, int age, String city) {
+    public Student(String name, int age) {
         this.name = name;
         this.age = age;
+
+    }
+
+    public void setCity(String city) {
         this.city = city;
     }
 
-    public boolean equals1 (Object ob){
+    @Override
+    public boolean equals (Object ob){
 
         if (ob == null || ob.getClass() != Student.class) return false;
         Student student = (Student) ob;

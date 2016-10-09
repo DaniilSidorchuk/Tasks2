@@ -9,8 +9,6 @@ public class Game {
 
         Player playerFirst = new Player("Bob", 25, 'x');
         Player playerSecond = new Player("Mike", 35, 'o');
-
-
         Board board = new Board(playerFirst, playerSecond);
 
         while (!board.gameFinished()){
