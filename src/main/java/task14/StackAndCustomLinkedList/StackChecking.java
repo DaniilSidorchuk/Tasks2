@@ -30,23 +30,24 @@ public class StackChecking {
         int length = brackets.length();
         Stack stack = new Stack();
         int type1 = 0;
-        int type11 = 0;
         int type2 = 0;
-        int type22 = 0;
         int type3 = 0;
-        int type33 = 0;
 
         for (int i = 0; i < length ; i++) {
             stack.push(brackets.charAt(i));
-            if (brackets.charAt(i)== '(') type1++;
-            if (brackets.charAt(i)== ')') type11++;
-            if (brackets.charAt(i)== '[') type2++;
-            if (brackets.charAt(i)== ']') type22++;
-            if (brackets.charAt(i)== '{') type3++;
-            if (brackets.charAt(i)== '}') type33++;
         }
-        if (type1==type11 && type2==type22 && type3==type33)return true;
+        for (int i = 0; i < length; i++) {
+            Object object = stack.pop();
+            String bracket = object.toString();
+            if (bracket.equals("(") || bracket.equals(")")) type1++;
+            if (bracket.equals("[") || bracket.equals("]")) type2++;
+            if (bracket.equals("{") || bracket.equals("}")) type3++;
+        }
+
+        if (type1%2==0 && type2%2==0 && type3%2==0) return true;
         else return false;
+
+
 
     }
 
