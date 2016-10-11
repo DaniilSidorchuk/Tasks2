@@ -7,9 +7,6 @@ public class City implements Comparable  {
     static String city2 = "Los Angeles" ;
     static String city3 = "Miami" ;
 
-
-
-
     @Override
     public int compareTo(Object o) {
         return 0;
