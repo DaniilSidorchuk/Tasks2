@@ -43,7 +43,7 @@ public class CustomLinkedList {
 
         while (turtle.next != null){
             turtle = turtle.next;
-            hare = hare.next;
+            hare = hare.next.next;
             if (turtle == hare) return true;
         }
 
