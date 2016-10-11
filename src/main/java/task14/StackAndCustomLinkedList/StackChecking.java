@@ -36,6 +36,8 @@ public class StackChecking {
         int type2 = 0;
         int type3 = 0;
 
+
+
         char t1 = '(';
         char t11 = ')';
         char t2 = '[';
@@ -43,22 +45,20 @@ public class StackChecking {
         char t3 = '{';
         char t33 = '}';
         char previous = ' ';
+        char current = ' ';
 
 
         for (int i = 0; i < length ; i++) {
-            if (i>0){
+            current=brackets.charAt(i);
+            if (current==t11 || current==t22 || current==t33){
                 previous = stack.peek().toString().charAt(0);
-            }
-            stack.push(brackets.charAt(i));
-            if (brackets.charAt(i)==t11 || brackets.charAt(i)==t22 || brackets.charAt(i)==t33){
-                if (brackets.charAt(i)==t11){
+                if (current==t11){
                     if (previous!=t1) return false;}
-                if (brackets.charAt(i)==t22){
+                if (current==t22){
                     if (previous!=t2) return false;}
-                if (brackets.charAt(i)==t33){
+                if (current==t33){
                     if (previous!=t3) return false;}
-            }
-
+            }stack.push(brackets.charAt(i));
         }
         for (int i = 0; i < length; i++) {
             Object object = stack.pop();
