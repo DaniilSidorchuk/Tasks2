@@ -9,14 +9,17 @@ public class StackChecking {
         String brackets = "([{([])}])";
         String brackets2 = "((([]])))";
         String brackets3 = "({[]()})";
+        String brackets4 = "({[}]())";
 
         boolean result =  bracketsChecking(brackets);
         boolean result2 = bracketsChecking(brackets2);
         boolean result3 = bracketsChecking(brackets3);
+        boolean result4 = bracketsChecking(brackets4);
 
         printResult(result, brackets);
         printResult(result2, brackets2);
         printResult(result3, brackets3);
+        printResult(result4, brackets4);
 
 
     }
@@ -33,8 +36,29 @@ public class StackChecking {
         int type2 = 0;
         int type3 = 0;
 
+        char t1 = '(';
+        char t11 = ')';
+        char t2 = '[';
+        char t22 = ']';
+        char t3 = '{';
+        char t33 = '}';
+        char previous = ' ';
+
+
         for (int i = 0; i < length ; i++) {
+            if (i>0){
+                previous = stack.peek().toString().charAt(0);
+            }
             stack.push(brackets.charAt(i));
+            if (brackets.charAt(i)==t11 || brackets.charAt(i)==t22 || brackets.charAt(i)==t33){
+                if (brackets.charAt(i)==t11){
+                    if (previous!=t1) return false;}
+                if (brackets.charAt(i)==t22){
+                    if (previous!=t2) return false;}
+                if (brackets.charAt(i)==t33){
+                    if (previous!=t3) return false;}
+            }
+
         }
         for (int i = 0; i < length; i++) {
             Object object = stack.pop();
