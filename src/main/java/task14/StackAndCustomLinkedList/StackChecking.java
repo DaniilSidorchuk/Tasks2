@@ -49,26 +49,26 @@ public class StackChecking {
 
             if (brackets.charAt(i)==t11 || brackets.charAt(i)==t22 || brackets.charAt(i)==t33){
                 if (brackets.charAt(i)==t11){
-                    if (stack.peek().toString().charAt(0)!=t1) return false;}
+                    if (stack.peek().toString().charAt(0)==t2 || stack.peek().toString().charAt(0)==t3){
+                        stack.pop();
+                        continue;
+                    }}
                 if (brackets.charAt(i)==t22){
-                    if (stack.peek().toString().charAt(0)!=t2) return false;}
+                    if (stack.peek().toString().charAt(0)== t1 || stack.peek().toString().charAt(0)== t3){
+                        stack.pop();
+                        continue;
+                    }}
                 if (brackets.charAt(i)==t33){
-                    if (stack.peek().toString().charAt(0)!=t3) return false;}
-            }stack.push(brackets.charAt(i));
+                    if (stack.peek().toString().charAt(0)==t2 || stack.peek().toString().charAt(0)==t1){
+                        stack.pop();
+                        continue;
+                    }}
+            }
+            stack.push(brackets.charAt(i));
         }
-        for (int i = 0; i < length; i++) {
-            Object object = stack.pop();
-            String bracket = object.toString();
-            if (bracket.equals("(") || bracket.equals(")")) type1++;
-            if (bracket.equals("[") || bracket.equals("]")) type2++;
-            if (bracket.equals("{") || bracket.equals("}")) type3++;
-        }
-
-        if (type1%2==0 && type2%2==0 && type3%2==0) return true;
-        else return false;
-
-
-
+        if (stack.size()<length){
+            return false;
+        }else return true;
     }
 
 }
