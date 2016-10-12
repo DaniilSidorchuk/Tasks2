@@ -32,11 +32,6 @@ public class StackChecking {
     public static boolean bracketsChecking(String brackets) {
         int length = brackets.length();
         Stack stack = new Stack();
-        int type1 = 0;
-        int type2 = 0;
-        int type3 = 0;
-
-
 
         char t1 = '(';
         char t11 = ')';
@@ -49,26 +44,26 @@ public class StackChecking {
 
             if (brackets.charAt(i)==t11 || brackets.charAt(i)==t22 || brackets.charAt(i)==t33){
                 if (brackets.charAt(i)==t11){
-                    if (stack.peek().toString().charAt(0)==t2 || stack.peek().toString().charAt(0)==t3){
+                    if (stack.peek().toString().charAt(0)==t1){
                         stack.pop();
                         continue;
                     }}
                 if (brackets.charAt(i)==t22){
-                    if (stack.peek().toString().charAt(0)== t1 || stack.peek().toString().charAt(0)== t3){
+                    if (stack.peek().toString().charAt(0)== t2){
                         stack.pop();
                         continue;
                     }}
                 if (brackets.charAt(i)==t33){
-                    if (stack.peek().toString().charAt(0)==t2 || stack.peek().toString().charAt(0)==t1){
+                    if (stack.peek().toString().charAt(0)==t3){
                         stack.pop();
                         continue;
                     }}
             }
             stack.push(brackets.charAt(i));
         }
-        if (stack.size()<length){
-            return false;
-        }else return true;
+        if (stack.isEmpty()){
+            return true;
+        }else return false;
     }
 
 }
