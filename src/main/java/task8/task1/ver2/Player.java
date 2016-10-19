@@ -1,25 +1,10 @@
 package task8.task1.ver2;
 
-public class Player {
-    private String name;
-    private  int age;
-    private char type;
+public interface Player {
 
-    public Player (String name, int age, char type){
-        this.name = name;
-        this.age = age;
-        this.type = type;
-    }
+    public char getType();
 
-    public char getType(){
-        return type;
-    }
+    public  String getName();
 
-    public  String getName() {
-        return name;
-    }
-
-    public  int getAge() {
-        return age;
-    }
+    public  int getAge();
 }
