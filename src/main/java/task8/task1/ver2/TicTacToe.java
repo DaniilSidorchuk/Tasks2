@@ -11,6 +11,7 @@ public class TicTacToe {
     Board board;
 
     Scanner sc = new Scanner(System.in);
+    Scanner sc1 = new Scanner(System.in);
 
     public TicTacToe(Player playerFirst, Player playerSecond, Board board) {
         this.playerFirst = playerFirst;
@@ -126,8 +127,5 @@ public class TicTacToe {
     }
 
 
-    public boolean xxxx(){
-        return board.getBoard(0,0) == currentPlayer.getType();
-    }
 
 }

@@ -9,10 +9,10 @@ public class Board {
 
     public Board(){
         board = new char[BOARD_SIZEi][BOARD_SIZE];
-        fillboard();
+        fillBoard();
     }
 
-    public void fillboard(){
+    public void fillBoard(){
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++){
                 board[i][j] = ' ';
