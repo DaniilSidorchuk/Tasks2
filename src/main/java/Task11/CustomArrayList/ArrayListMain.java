@@ -6,16 +6,23 @@ import java.util.Iterator;
 
 public class ArrayListMain {
 
-    public static void main(String[] args) {
-
-        CustomList list = new CustomArrayList(5);
-        list.add("a");
+    public static void main(String[] args)  {
+        CustomArrayList list = new CustomArrayList(5);
+try {
+    list.add("a");
+}catch (Exception e){
+    System.out.println(e.getMessage());
+    e.printStackTrace();
+}
+        
         list.add("c");
         list.add("c");
         list.add("d");
         list.add("e");
         list.add("f");
+        list.remove(1);
         System.out.println(list);
+
 
         System.out.println();
         System.out.println("Iterator example");
@@ -25,4 +32,5 @@ public class ArrayListMain {
         }
 
     }
+
 }

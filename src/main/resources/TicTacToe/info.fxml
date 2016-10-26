@@ -1,0 +1,96 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<GridPane>
+    <children>
+        <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2">
+              <Label text="Player 1:"></Label>
+              <Label text="Player 2:"></Label>
+        </HBox>
+
+        <Label
+            text="Name:"
+            GridPane.rowIndex="1"
+            GridPane.columnIndex="0"
+        GridPane.halignment="RIGHT">
+        </Label>
+
+        <TextArea
+        GridPane.rowIndex="1"
+        GridPane.columnIndex="1"
+        GridPane.halignment="LEFT">
+        </TextArea>
+
+        <Label
+        text="Name:"
+        GridPane.rowIndex="1"
+        GridPane.columnIndex="2"
+        GridPane.halignment="RIGHT">
+        </Label>
+
+        <TextArea
+        GridPane.rowIndex="1"
+        GridPane.columnIndex="3"
+        GridPane.halignment="LEFT">
+        </TextArea>
+
+        <Label
+                text="Age:"
+                GridPane.rowIndex="2"
+                GridPane.columnIndex="0"
+                GridPane.halignment="RIGHT">
+        </Label>
+
+        <TextArea
+                GridPane.rowIndex="2"
+                GridPane.columnIndex="1"
+                GridPane.halignment="LEFT">
+        </TextArea>
+
+        <Label
+                text="Age:"
+                GridPane.rowIndex="2"
+                GridPane.columnIndex="2"
+                GridPane.halignment="RIGHT">
+        </Label>
+
+        <TextArea
+                GridPane.rowIndex="2"
+                GridPane.columnIndex="3"
+                GridPane.halignment="LEFT">
+        </TextArea>
+
+        <Label
+                text="Symbol:"
+                GridPane.rowIndex="3"
+                GridPane.columnIndex="0"
+                GridPane.halignment="RIGHT">
+        </Label>
+
+        <TextArea
+                GridPane.rowIndex="3"
+                GridPane.columnIndex="1"
+                GridPane.halignment="LEFT">
+        </TextArea>
+
+        <Label
+                text="Symbol:"
+                GridPane.rowIndex="3"
+                GridPane.columnIndex="2"
+                GridPane.halignment="RIGHT">
+        </Label>
+
+        <TextArea
+                GridPane.rowIndex="3"
+                GridPane.columnIndex="3"
+                GridPane.halignment="LEFT">
+        </TextArea>
+
+        <HBox GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2">
+            <Button text="START"></Button>
+            <Button text="CANCEL"></Button>
+        </HBox>
+    </children>
+</GridPane>
