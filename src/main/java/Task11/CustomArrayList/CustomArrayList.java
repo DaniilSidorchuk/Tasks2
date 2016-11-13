@@ -11,18 +11,21 @@ public class CustomArrayList implements CustomList {
     private String[] array;
     private int size = 0;
 
+
     public CustomArrayList() {
         //this(SIZE);
         array = new String[SIZE];
     }
 
-    public void receiverOfExceptions(String message) throws Exception{
-        if (message.equals("Chosen size of array is invalid")) throw  new IndexOutOfBoundsException(message);
-        if (message.equals("Sent element hasn`t got an object")) throw  new ElementHasntGotAnObjectException(message);
-        if (message.equals("Index is out of array indexes range")) throw  new IndexOutOfBoundsException(message);
+    public void receiverOfExceptions(){
+        try {
+            add("something");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
-    public CustomArrayList(int size) throws Exception {
+    public CustomArrayList(int size) {
 if ( size <= 0) receiverOfExceptions("Chosen size of array is invalid");
         array = new String[size];
     }
@@ -39,8 +42,8 @@ if ( size <= 0) receiverOfExceptions("Chosen size of array is invalid");
         return false;
     }
 
-    public boolean add(String element) throws Exception {
-        if (element == null) receiverOfExceptions("Sent element hasn`t got an object");
+        public boolean add(String element) {
+        if (element == null) throw new ElementHasntGotAnObjectException("Sent element hasn`t got an object");
         if (size >= array.length)
             resizeArray();
 
@@ -48,7 +51,7 @@ if ( size <= 0) receiverOfExceptions("Chosen size of array is invalid");
         size++;
 
         return true;
-    }
+    } //
 
     private void resizeArray() {
         String[] arrayExt = new String[array.length * 2];
@@ -58,37 +61,38 @@ if ( size <= 0) receiverOfExceptions("Chosen size of array is invalid");
         array = arrayExt;
     }
 
-        public void add(int index, String element) throws Exception {
-    if (index>size  || index<=0) receiverOfExceptions("Index is out of array indexes range");
-    if (element == null) receiverOfExceptions("Sent element hasn`t got an object");
+        public void add(int index, String element) {
+    if (index>size  || index<=0) throw new IndexOutOfBoundsException("Index is out of array indexes range");
+    if (element == null) throw new ElementHasntGotAnObjectException("Sent element hasn`t got an object");
         array[index] = element;
-    }
 
-        public boolean remove(String element) throws Exception {
-        if (element == null) receiverOfExceptions("Sent element hasn`t got an object");
+    } //
+
+        public boolean remove(String element) {
+        if (element == null) throw new ElementHasntGotAnObjectException("Sent element hasn`t got an object");
         return false;
     }
 
-        public String remove(int index)throws Exception {
-        if (index<=0 || index>size) receiverOfExceptions("Index is out of array indexes range");
+        public String remove(int index) {
+        if (index<=0 || index>size)throw new IndexOutOfBoundsException ("Index is out of array indexes range");
         return null;
     }
 
     public void clear() {}
 
-        public String get(int index) throws Exception {
-        if (index<=0 || index>size)receiverOfExceptions("Index is out of array indexes range");
+        public String get(int index)  {
+        if (index<=0 || index>size)throw new IndexOutOfBoundsException("Index is out of array indexes range");
         return null;
     }
 
-        public String get(int index, String element) throws Exception {
-        if (index>size  || index<=0)receiverOfExceptions("Index is out of array indexes range");
-        if (element == null)receiverOfExceptions("Sent element hasn`t got an object");
+        public String get(int index, String element) {
+        if (index>size  || index<=0) throw new IndexOutOfBoundsException("Index is out of array indexes range");
+        if (element == null) throw new ElementHasntGotAnObjectException("Sent element hasn`t got an object");
         return null;
     }
 
-        public int indexOf(String element) throws Exception {
-        if (element == null) receiverOfExceptions("Sent element hasn`t got an object");
+        public int indexOf(String element)  {
+        if (element == null) throw new ElementHasntGotAnObjectException("Sent element hasn`t got an object");
         return 0;
     }
 

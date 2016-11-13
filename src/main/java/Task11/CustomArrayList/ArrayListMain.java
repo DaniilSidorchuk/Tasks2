@@ -8,13 +8,7 @@ public class ArrayListMain {
 
     public static void main(String[] args)  {
         CustomArrayList list = new CustomArrayList(5);
-try {
-    list.add("a");
-}catch (Exception e){
-    System.out.println(e.getMessage());
-    e.printStackTrace();
-}
-        
+
         list.add("c");
         list.add("c");
         list.add("d");
